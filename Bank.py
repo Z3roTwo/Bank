@@ -1,18 +1,19 @@
-import random
-import json
+import random # Importerar en modul som bland annat ger oss tillgång till ett slumpmässigt tal
+import json # Importerar bland annat json.dump för att skriva ut variablerna i ett json document
 
 # Variabler
-login = False
-user = 0
-acc = 0
-password = 0
-pin = False
-balance = 0
-logPass = 0
-menuLoop = True
-menu = 0
-deposit = 0
-withdrawal = 0
+# (Definerar alla variabler i början så jag vet vilka jag har ._.)
+login = False # Bool som är loopar startsidan tills en lyckad inloggning har skett
+user = 0 # Variabel för användarnamnet, den används egentligen inte för att logga in med men det sätts när man skapar en användare
+acc = 0 # Slumpmässigt kontonummer, samma som med user
+password = 0 # Lösenord som sätts när man skapar användare
+pin = False # Pinkod som bara används för att kolla om det finns en användare
+balance = 0 # Saldo
+logPass = 0 # Input lösenord vid inloggning
+menuLoop = True # Loopar meny sidan så länge den är 'True'
+menu = 0 # Sparar meny valet
+deposit = 0 # Hur mycket pengar som sätts in
+withdrawal = 0 # Hur mycket pengar som tas ut
 
 try:
     with open("Storage.json", "r") as storage:
