@@ -15,6 +15,7 @@ menu = 0 # Sparar meny valet
 deposit = 0 # Hur mycket pengar som sätts in
 withdrawal = 0 # Hur mycket pengar som tas ut
 
+# Skriptet kollar om Storage.json finns och öppnar den, om den inte finns så printar den bara en hälsningsfras
 try:
     with open("Storage.json", "r") as storage:
         for line in storage:
@@ -22,6 +23,9 @@ try:
 except:
     print("Welcome to GurkBank")
 
+# While login == False loopar igenom login sidan tills en användare har skapats
+# När man skapar en användare sparar den alla input som variabler
+# Vid inloggnig så jämför den 'logPass' med 'pass', om det är samma så loggas man in
 while login == False:
 
     if int(input("[1] Create new account [2] Login: ")) == 1:
@@ -30,6 +34,7 @@ while login == False:
         pin = input("Pincode: ")
         acc = random.randint(1000, 9999)
     elif pin == False:
+        # Om variabeln pin är oförändrad så måste man göra en användare
         print("There's no account in our database yet..")
     else:
         print("Login")
@@ -38,10 +43,14 @@ while login == False:
         if logPass != password:
             print("Something went wrong!")
         else:
+            # Avslutar loopen
             login = True
 
+# Temp print för att hålla koll på om allting fungerade
 print(user, acc, password, pin, balance, logPass)
 
+# While menuLoop loopar igenom men sidan så länge menuLoop är 'True'
+# 
 while menuLoop:
     try:
         menu = int(input("[1] View Balance [2] Deposit [3] Withdrawal [4] Exit: "))
